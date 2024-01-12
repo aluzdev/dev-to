@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>New Post</title>
+        <link rel="stylesheet" href="/css/new.css" />
+    </head>
+    <body>
+        <h1>Create New Post</h1>
+        <form class="newPostForm" id="newPostForm">
+            <label for="author"
+                >author: <input type="text" name="author" id="author"
+            /></label>
+            <label for="image">
+                image:
+                <input type="file" name="image" id="image" />
+            </label>
+            <label for="title">
+                title:
+                <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="2024's best AI tools for dev"
+                />
+            </label>
+            <label for="tags">
+                tags:
+                <input
+                    type="text"
+                    name="tags"
+                    id="tags"
+                    placeholder="#javascript, #react, #css"
+                />
+            </label>
+            <label for="content">
+                content:
+                <input
+                    type="text"
+                    name="content"
+                    id="content"
+                    placeholder="lorem ipsum dolor"
+                />
+            </label>
+            <button style="max-width: 150px">submit</button>
+        </form>
+        <script src="/js/newPost.js"></script>
+    </body>
+</html>
