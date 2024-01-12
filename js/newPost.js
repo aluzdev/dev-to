@@ -4,7 +4,7 @@ const image = document.getElementById('image')
 const title = document.getElementById('title')
 const tags = document.getElementById('tags')
 const content = document.getElementById('content')
-const response = document.getElementById('response')
+const responseParagraph = document.getElementById('response')
 
 newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -37,5 +37,11 @@ newPostForm.addEventListener('submit', async (e) => {
     const data = await response
     console.log('database response:', { data })
 
+    if (data.ok)
+        responseParagraph.innerText =
+            'Your post was successfuly published! - check your console for more info'
+    else
+        responseParagraph.innerText =
+            'Something went horribly wrong - check your console'
     newPostForm.reset()
 })
