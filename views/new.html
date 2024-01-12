@@ -11,11 +11,31 @@
         <form class="newPostForm" id="newPostForm">
             <label for="author"
                 >author:
-                <input type="text" name="author" id="author" value="dog"
+                <input
+                    type="text"
+                    name="author"
+                    id="author"
+                    placeholder="Dr. Hussain"
+                    required
+            /></label>
+            <label for="avatar"
+                >avatar:
+                <input
+                    type="url"
+                    name="avatar"
+                    id="avatar"
+                    placeholder="url of an image"
+                    required
             /></label>
             <label for="image">
                 image:
-                <input type="file" name="image" id="image" />
+                <input
+                    type="url"
+                    name="image"
+                    id="image"
+                    placeholder="url of an image"
+                    required
+                />
             </label>
             <label for="title" value="cute dogs are cute">
                 title:
@@ -24,7 +44,7 @@
                     name="title"
                     id="title"
                     placeholder="2024's best AI tools for dev"
-                    value="dog like potato"
+                    required
                 />
             </label>
             <label for="tags">
@@ -34,7 +54,7 @@
                     name="tags"
                     id="tags"
                     placeholder="#javascript, #react, #css"
-                    value="#dog"
+                    required
                 />
             </label>
             <label for="content">
@@ -44,11 +64,12 @@
                     name="content"
                     id="content"
                     placeholder="lorem ipsum dolor"
-                    value="im dog"
+                    required
                 />
             </label>
             <button style="max-width: 150px">submit</button>
         </form>
+        <p id="response"></p>
         <script src="/js/newPost.js"></script>
     </body>
 </html>

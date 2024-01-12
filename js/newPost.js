@@ -4,6 +4,7 @@ const image = document.getElementById('image')
 const title = document.getElementById('title')
 const tags = document.getElementById('tags')
 const content = document.getElementById('content')
+const response = document.getElementById('response')
 
 newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -14,6 +15,7 @@ newPostForm.addEventListener('submit', async (e) => {
     const titleValue = title.value
     const tagsValue = tags.value
     const contentValue = content.value
+    const currentDate = new Date()
 
     const postData = {
         authorValue,
@@ -21,18 +23,18 @@ newPostForm.addEventListener('submit', async (e) => {
         titleValue,
         tagsValue,
         contentValue,
+        currentDate,
     }
 
-    console.log(
-        'sending the following information to the database:',
-        JSON.stringify(postData)
-    )
+    console.log('sending the following information to the database:', {
+        postData,
+    })
 
     const response = await fetch(url, {
         method: 'post',
         body: JSON.stringify(postData),
     })
-    const data = await response.json()
+    const data = await response
 
-    console.log('database response:', JSON.stringify(data))
+    console.log('database response:', { data })
 })
