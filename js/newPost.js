@@ -15,7 +15,7 @@ newPostForm.addEventListener('submit', async (e) => {
     const titleValue = title.value
     const tagsValue = tags.value
     const contentValue = content.value
-    const currentDate = new Date()
+    const creationDate = new Date()
 
     const postData = {
         authorValue,
@@ -23,7 +23,7 @@ newPostForm.addEventListener('submit', async (e) => {
         titleValue,
         tagsValue,
         contentValue,
-        currentDate,
+        creationDate,
     }
 
     console.log('sending the following information to the database:', {
@@ -35,6 +35,7 @@ newPostForm.addEventListener('submit', async (e) => {
         body: JSON.stringify(postData),
     })
     const data = await response
-
     console.log('database response:', { data })
+
+    newPostForm.reset()
 })
