@@ -5,17 +5,16 @@ const title = document.getElementById('title')
 const tags = document.getElementById('tags')
 const content = document.getElementById('content')
 
-newPostForm.addEventListener('submit', (e) => {
+newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
+    const url = 'https://dev-to-fcbcc-default-rtdb.firebaseio.com/posts/.json'
 
-    // Extract data from input fields
     const authorValue = author.value
-    const imageValue = image.value // This will give you the file path (if allowed by browser)
+    const imageValue = image.value
     const titleValue = title.value
     const tagsValue = tags.value
     const contentValue = content.value
 
-    // You can now use these values as needed
     const postData = {
         authorValue,
         imageValue,
@@ -24,7 +23,16 @@ newPostForm.addEventListener('submit', (e) => {
         contentValue,
     }
 
-    console.log({ postData })
+    console.log(
+        'sending the following information to the database:',
+        JSON.stringify(postData)
+    )
 
-    // Submit the form or perform other actions with the data
+    const response = await fetch(url, {
+        method: 'post',
+        body: JSON.stringify(postData),
+    })
+    const data = await response.json()
+
+    console.log('database response:', JSON.stringify(data))
 })
