@@ -5,6 +5,21 @@ const title = document.getElementById('title')
 const tags = document.getElementById('tags')
 const content = document.getElementById('content')
 const responseParagraph = document.getElementById('response')
+const testing = document.getElementById('testing')
+
+const fetchAllData = async () => {
+    const url = 'https://dev-to-fcbcc-default-rtdb.firebaseio.com/.json'
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log({ data })
+    return data
+}
+
+const extractImageValues = (data) => {
+    return Object.values(data.posts)
+        .map((post) => post.imageValue)
+        .filter(Boolean)
+}
 
 newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -45,3 +60,17 @@ newPostForm.addEventListener('submit', async (e) => {
             'Something went horribly wrong - check your console'
     newPostForm.reset()
 })
+
+const main = async () => {
+    const postsData = await fetchAllData()
+    const imagesOfAllPosts = extractImageValues(postsData)
+    console.log({ imagesOfAllPosts })
+    imagesOfAllPosts.forEach((image) => {
+        const imgTag = document.createElement('img')
+        imgTag.src = image
+        imgTag.width = '100'
+        imgTag.height = '100'
+        testing.append(imgTag)
+    })
+}
+main()
