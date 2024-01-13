@@ -1,6 +1,6 @@
-import { fetchAllData } from './utils.js'
+import { getAllPosts } from './utils.js'
 
-const posts = fetchAllData()
+const posts = getAllPosts()
 const postsList = document.getElementById('postsList')
 postsList.innerHTML = ''
 

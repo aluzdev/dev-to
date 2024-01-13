@@ -1,4 +1,4 @@
-import { fetchAllData } from './utils'
+import { getAllPosts } from './utils'
 
 const newPostForm = document.getElementById('newPostForm')
 const author = document.getElementById('author')
@@ -56,7 +56,7 @@ newPostForm.addEventListener('submit', async (e) => {
 })
 
 const main = async () => {
-    const postsData = await fetchAllData()
+    const postsData = await getAllPosts()
     const imagesOfAllPosts = extractImageValues(postsData)
     console.log({ imagesOfAllPosts })
     imagesOfAllPosts.forEach((image) => {
