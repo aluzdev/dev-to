@@ -1,4 +1,4 @@
-.juniorCard {
+.postsList {
     background-color: #f5f5f5;
     margin-bottom: 10px;
 }
@@ -14,7 +14,7 @@ img.fullWidth {
     }
 }
 
-.juniorDevSectionPadding {
+.postContainerPadding {
     padding: 25px;
     background-color: #fff;
     margin-bottom: 10px;

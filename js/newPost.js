@@ -1,3 +1,5 @@
+import { fetchAllData } from './utils'
+
 const newPostForm = document.getElementById('newPostForm')
 const author = document.getElementById('author')
 const image = document.getElementById('image')
@@ -6,14 +8,6 @@ const tags = document.getElementById('tags')
 const content = document.getElementById('content')
 const responseParagraph = document.getElementById('response')
 const testing = document.getElementById('testing')
-
-const fetchAllData = async () => {
-    const url = 'https://dev-to-fcbcc-default-rtdb.firebaseio.com/.json'
-    const response = await fetch(url)
-    const data = await response.json()
-    console.log({ data })
-    return data
-}
 
 const extractImageValues = (data) => {
     return Object.values(data.posts)
