@@ -1,9 +1,12 @@
 import { getAllPosts } from './utils.js'
 
-const posts = getAllPosts()
+const posts = await getAllPosts()
 const postsList = document.getElementById('postsList')
+const firstPost = posts[0]
+console.log({ firstPost })
 postsList.innerHTML = ''
 
+//idk ill do this tomorrow hehe
 const postHTML = `<div class="postContainerPadding">
 <aside>
     <div class="profileInfo">
