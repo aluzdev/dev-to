@@ -42,7 +42,7 @@ function createPostElement(postData) {
 
     const creationDateElement = document.createElement('h4')
     creationDateElement.className = 'profile-subtitle'
-    creationDateElement.textContent = creationDate.slice(4, 9)
+    creationDateElement.textContent = creationDate?.slice(4, 9)
 
     // Append profile elements
     profileColumn.appendChild(authorName)
@@ -64,7 +64,7 @@ function createPostElement(postData) {
     tagSection.className = 'tagSection'
 
     // Assuming tagsValue is an array of tag strings like ['#programming', '#beginners', ...]
-    tagsValue.split(', ').forEach((tag) => {
+    tagsValue?.split(', ').forEach((tag) => {
         const tagElement = document.createElement('p')
         tagElement.className = 'tags'
         tagElement.textContent = tag
@@ -146,12 +146,13 @@ function createPostElement(postData) {
 }
 
 function addPostToList(postData) {
-    console.log('gay', postData)
     const firstPostImage = postData[0].imageValue
     locationToInsertFirstPostImage.src = firstPostImage
 
-    const postElement = createPostElement(postData)
-    postsList.appendChild(postElement)
+    postData.forEach((post) => {
+        const postElement = createPostElement(postData)
+        postsList.appendChild(postElement)
+    })
 }
 
 addPostToList(posts)
