@@ -4,7 +4,6 @@ const posts = await getAllPosts()
 const postsList = document.getElementById('postsList')
 const firstPost = posts[0]
 const locationToInsertFirstPostImage = document.getElementById('firstPostImage')
-console.log({ firstPost })
 postsList.innerHTML = ''
 
 function createPostElement(postData) {
@@ -63,7 +62,6 @@ function createPostElement(postData) {
     tagSection.id = `tag${id}`
     tagSection.className = 'tagSection'
 
-    // Assuming tagsValue is an array of tag strings like ['#programming', '#beginners', ...]
     tagsValue?.split(', ').forEach((tag) => {
         const tagElement = document.createElement('p')
         tagElement.className = 'tags'
@@ -150,7 +148,7 @@ function addPostToList(postData) {
     locationToInsertFirstPostImage.src = firstPostImage
 
     postData.forEach((post) => {
-        const postElement = createPostElement(postData)
+        const postElement = createPostElement(post)
         postsList.appendChild(postElement)
     })
 }
