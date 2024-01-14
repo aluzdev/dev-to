@@ -162,6 +162,21 @@ header {
     text-decoration: underline;
 }
 
+.logoutHeader {
+    text-decoration: none;
+    color: #3b49df;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 7px 15px;
+    border: 1px solid #3b49df;
+}
+
+.logoutHeader:hover {
+    background-color: #3b49df;
+    color: #fff;
+    text-decoration: underline;
+}
+
 .searchContainer a {
     text-decoration: none;
     color: #3b49df;
