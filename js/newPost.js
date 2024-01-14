@@ -8,7 +8,7 @@ const tags = document.getElementById('tags')
 const content = document.getElementById('content')
 const responseParagraph = document.getElementById('response')
 const testing = document.getElementById('testing')
-const avatar = document.getElementById('avatar')
+const avatarIcon = document.getElementById('avatar')
 
 const extractImageValues = (data) => {
     if (!data) return
@@ -20,7 +20,7 @@ newPostForm.addEventListener('submit', async (e) => {
     const url = 'https://dev-to-fcbcc-default-rtdb.firebaseio.com/posts/.json'
 
     const authorValue = author.value
-    const avatarValue = avatar.value
+    const avatar = avatarIcon.value
     const imageValue = image.value
     const titleValue = title.value
     const tagsValue = tags.value
@@ -29,7 +29,7 @@ newPostForm.addEventListener('submit', async (e) => {
 
     const postData = {
         authorValue,
-        avatarValue,
+        avatar,
         imageValue,
         titleValue,
         tagsValue,
