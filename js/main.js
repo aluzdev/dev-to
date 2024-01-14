@@ -67,7 +67,16 @@ function createPostElement(postData) {
     const tagSection = document.createElement('aside')
     tagSection.id = `tag${id}`
     tagSection.className = 'tagSection'
-    tagSection.innerHTML = tagsValue // Assuming tagsValue is safe and already formatted HTML
+
+    // Assuming tagsValue is an array of tag strings like ['#programming', '#beginners', ...]
+    tagsValue.split(', ').forEach((tag) => {
+        const tagElement = document.createElement('p')
+        tagElement.className = 'tags'
+        tagElement.textContent = tag
+        tagSection.appendChild(tagElement)
+    })
+
+    mainContent.appendChild(tagSection)
 
     // Append main content elements
     mainContent.appendChild(title)
