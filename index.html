@@ -38,10 +38,17 @@
                         ></i>
                     </div>
 
-                    <div class="logInHeader">
-                        <a href="/">Log in</a>
+                    <div class="logInHeader" id="logInHeader">
+                        <a href="./views/login.html">Log in</a>
                     </div>
-                    <a href="/" id="createAccountHeader">Create account</a>
+                    <a href="./views/registration.html" id="createAccountHeader"
+                        >Create account</a
+                    >
+                    <div id="logOutButton">
+                        <button class="logoutHeader" onclick="removeToken()">
+                            Logout
+                        </button>
+                    </div>
                 </section>
             </div>
         </header>
@@ -1234,5 +1241,9 @@
         src="https://kit.fontawesome.com/acd114ba49.js"
         crossorigin="anonymous"
     ></script>
+<<<<<<< HEAD
     <script src="/js/main.js" type="module"></script>
+=======
+    <script src="./js/login.js"></script>
+>>>>>>> 6f09b95 (agregando funcionalidad a el log in log out del index)
 </html>
