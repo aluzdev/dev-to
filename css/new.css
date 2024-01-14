@@ -4,3 +4,27 @@
     justify-content: center;
     gap: 10px;
 }
+
+.barra-nav_header{
+    align-items: center;
+    padding: 1rem;
+    border: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border: 5px solid red;
+}
+
+.barra-nav_header * {
+    border: 5px solid blue;
+    float:left;
+    
+}
+
+.newPostForm *{
+    border: 50% solid blue; 
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
