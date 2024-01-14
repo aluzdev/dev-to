@@ -2,11 +2,10 @@ import { getAllPosts } from './utils.js'
 
 const posts = await getAllPosts()
 const postsList = document.getElementById('postsList')
-const firstPost = posts[0]
 const locationToInsertFirstPostImage = document.getElementById('firstPostImage')
 postsList.innerHTML = ''
 
-function createPostElement(postData) {
+const createPostElement = (postData) => {
     const {
         authorValue,
         avatar,
@@ -143,7 +142,7 @@ function createPostElement(postData) {
     return postContainer
 }
 
-function addPostToList(postData) {
+const addPostToList = (postData) => {
     const firstPostImage = postData[0].imageValue
     locationToInsertFirstPostImage.src = firstPostImage
 
