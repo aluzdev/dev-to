@@ -39,9 +39,6 @@ const addData = () => {
     storedCredentials.push({ email, password })
 
     localStorage.setItem('userCredentials', JSON.stringify(storedCredentials))
-
-    updateHTMLAfterToken()
-    createToken()
 }
 
 const checkData = () => {
@@ -57,10 +54,9 @@ const checkData = () => {
 
     if (user) {
         if (enterPwd === user.password) {
-            createToken()
-            alert('Login successful')
+            alert('login Successful')
         } else {
-            alert('Wrong password')
+            alert('wrong password')
         }
     } else {
         alert('Invalid data')
