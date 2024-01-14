@@ -1,4 +1,4 @@
-import { getAllPosts } from './utils'
+import { getAllPosts } from './utils.js'
 
 const newPostForm = document.getElementById('newPostForm')
 const author = document.getElementById('author')
@@ -10,9 +10,8 @@ const responseParagraph = document.getElementById('response')
 const testing = document.getElementById('testing')
 
 const extractImageValues = (data) => {
-    return Object.values(data.posts)
-        .map((post) => post.imageValue)
-        .filter(Boolean)
+    if (!data) return
+    return data.map((post) => post.imageValue).filter(Boolean)
 }
 
 newPostForm.addEventListener('submit', async (e) => {
