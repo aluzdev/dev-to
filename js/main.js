@@ -3,15 +3,10 @@ import { getAllPosts } from './utils.js'
 const posts = await getAllPosts()
 const postsList = document.getElementById('postsList')
 const firstPost = posts[0]
+const locationToInsertFirstPostImage = document.getElementById('firstPostImage')
 console.log({ firstPost })
 postsList.innerHTML = ''
 
-//helper function for addPostToList
-const insertTagToTagList = (tagText, tagListID) => {
-    const tag = `<p>${tagText}</p>`
-    const tagList = getElementById(tagListID)
-    tagList.innerHTML = tag
-}
 function createPostElement(postData) {
     const {
         authorValue,
@@ -151,8 +146,12 @@ function createPostElement(postData) {
 }
 
 function addPostToList(postData) {
+    console.log('gay', postData)
+    const firstPostImage = postData[0].imageValue
+    locationToInsertFirstPostImage.src = firstPostImage
+
     const postElement = createPostElement(postData)
     postsList.appendChild(postElement)
 }
 
-addPostToList(firstPost)
+addPostToList(posts)
