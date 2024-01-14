@@ -6,14 +6,32 @@ const firstPost = posts[0]
 console.log({ firstPost })
 postsList.innerHTML = ''
 
-//idk ill do this tomorrow hehe
-const postHTML = `<div class="postContainerPadding">
+//helper function for addPostToList
+const insertTagToTagList = (tagText, tagListID) => {
+    const tag = `<p>${tagText}</p>`
+    const tagList = getElementById(tagListID)
+    tagList.innerHTML = tag
+}
+
+const addPostToList = (postData) => {
+    const {
+        authorValue,
+        avatar,
+        contentValue,
+        creationDate,
+        id,
+        imageValue,
+        tagsValue,
+        titleValue,
+    } = postData
+    const tagListID = `tag${id}`
+
+    const postHTML = `<div id=${id} class="postContainerPadding">
 <aside>
     <div class="profileInfo">
         <img
-            src="/assets/rounded-profile.png"
+            src=${avatar}
             class="profileImage"
-            alt="profile picture of a guy smiling"
         />
         <div class="column">
             <h3
@@ -22,19 +40,17 @@ const postHTML = `<div class="postContainerPadding">
                     color: rgb(64, 64, 64);
                 "
             >
-                Mateusz Charytoniuk
+                ${authorValue}
             </h3>
-            <h4 class="profile-subtitle">Nov 15</h4>
+            <h4 class="profile-subtitle">${creationDate.slice(4, 9)}</h4>
         </div>
     </div>
 </aside>
 <div class="paddingOnDesktop">
-    <h1 class="mainTitle">To Junior Developers</h1>
-    <aside class="tagSection">
-        <p class="tags">#programming</p>
-        <p class="tags">#beginners</p>
-        <p class="tags">#career</p>
-        <p class="tags">#productivity</p>
+    <h1 class="mainTitle">${titleValue}</h1>
+    <aside id=${tagListID} class="tagSection">
+    tags go here
+        
     </aside>
 
     <div class="emoji-section">
@@ -45,7 +61,7 @@ const postHTML = `<div class="postContainerPadding">
             <p>🙌</p>
             <p>🔥</p>
 
-            <p class="emojiText">286</p>
+            <p class="emojiText">${Math.floor(Math.random() * 101)}</p>
             <p
                 class="emojiText showOnTabletOnly"
                 style="margin-left: 5px"
@@ -56,7 +72,7 @@ const postHTML = `<div class="postContainerPadding">
                 class="emojiText"
                 style="margin-left: 10px"
             >
-                💬 97
+                💬 ${Math.floor(Math.random() * 101)}
             </p>
             <p
                 class="emojiText showOnTabletOnly"
@@ -66,7 +82,7 @@ const postHTML = `<div class="postContainerPadding">
             </p>
         </div>
         <div class="bookmarkSection">
-            4 min read
+            ${Math.floor(Math.random() * 10)} min read
             <img
                 src="assets/bookmark.png"
                 alt="bookmark icon"
@@ -77,3 +93,8 @@ const postHTML = `<div class="postContainerPadding">
         </div>
     </div>
 </div>`
+
+    postsList.innerHTML = postHTML
+}
+
+addPostToList(firstPost)
