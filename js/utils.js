@@ -28,7 +28,8 @@ export const getAllPosts = async () => {
     }
 }
 
-export const createPostElement = (postData) => {
+//helper function for addPostsToList
+const createPostElement = (postData) => {
     const {
         authorValue,
         avatar,
@@ -163,4 +164,23 @@ export const createPostElement = (postData) => {
     postContainer.appendChild(mainContent)
 
     return postContainer
+}
+
+/*
+description: Receives an array of posts and places them in the posts list
+@param postData: an array of posts
+@output: each post in the given array is placed in the main page.
+*/
+export const addPostsToList = (postsData) => {
+    const postsList = document.getElementById('postsList')
+    const locationToInsertFirstPostImage =
+        document.getElementById('firstPostImage')
+    postsList.innerHTML = ''
+    const firstPostImage = postsData[0].imageValue
+    locationToInsertFirstPostImage.src = firstPostImage
+
+    postsData.forEach((post) => {
+        const postElement = createPostElement(post)
+        postsList.appendChild(postElement)
+    })
 }
