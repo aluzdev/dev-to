@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/style.css" />
-        <link rel="stylesheet" href="./css/to-junior-dev.css" />
+        <link rel="stylesheet" href="./css/postsList.css" />
         <link rel="stylesheet" href="./css/sideCard.css" />
         <link rel="stylesheet" href="./css/weekly.css" />
 
@@ -22,6 +22,7 @@
                     <div class="inputContainer">
                         <input
                             type="text"
+                            id="search-input"
                             placeholder="Search..."
                             class="inputNav"
                         /><i
@@ -38,10 +39,17 @@
                         ></i>
                     </div>
 
-                    <div class="logInHeader">
-                        <a href="/">Log in</a>
+                    <div class="logInHeader" id="logInHeader">
+                        <a href="./views/login.html">Log in</a>
                     </div>
-                    <a href="/" id="createAccountHeader">Create account</a>
+                    <a href="./views/registration.html" id="createAccountHeader"
+                        >Create account</a
+                    >
+                    <div id="logOutButton">
+                        <button class="logoutHeader" onclick="removeToken()">
+                            Logout
+                        </button>
+                    </div>
                 </section>
             </div>
         </header>
@@ -284,488 +292,17 @@
                     </section>
                 </aside>
 
-                <section class="juniorCard">
+                <section class="heroSection">
                     <div class="middleNav">
                         <a href="/"><strong>Relevant</strong></a>
                         <a href="/">Latest </a>
                         <a href="/">Top </a>
                     </div>
-                    <img
-                        src="/assets/red_horizon.jpg"
-                        class="fullWidth"
-                        alt="red mountains at the horizon"
-                    />
-                    <div class="juniorDevSectionPadding">
-                        <aside>
-                            <div class="profileInfo">
-                                <img
-                                    src="/assets/rounded-profile.png"
-                                    class="profileImage"
-                                    alt="profile picture of a guy smiling"
-                                />
-                                <div class="column">
-                                    <h3
-                                        style="
-                                            font-size: 16px;
-                                            color: rgb(64, 64, 64);
-                                        "
-                                    >
-                                        Mateusz Charytoniuk
-                                    </h3>
-                                    <h4 class="profile-subtitle">Nov 15</h4>
-                                </div>
-                            </div>
-                        </aside>
-                        <div class="paddingOnDesktop">
-                            <h1 class="mainTitle">To Junior Developers</h1>
-                            <aside class="tagSection">
-                                <p class="tags">#programming</p>
-                                <p class="tags">#beginners</p>
-                                <p class="tags">#career</p>
-                                <p class="tags">#productivity</p>
-                            </aside>
-
-                            <div class="emoji-section">
-                                <div class="setOfEmojis">
-                                    <p>💖</p>
-                                    <p>🦄</p>
-                                    <p>🤩</p>
-                                    <p>🙌</p>
-                                    <p>🔥</p>
-
-                                    <p class="emojiText">286</p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 5px"
-                                    >
-                                        reactions
-                                    </p>
-                                    <p
-                                        class="emojiText"
-                                        style="margin-left: 10px"
-                                    >
-                                        💬 97
-                                    </p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 10px"
-                                    >
-                                        comments
-                                    </p>
-                                </div>
-                                <div class="bookmarkSection">
-                                    4 min read
-                                    <img
-                                        src="assets/bookmark.png"
-                                        alt="bookmark icon"
-                                        width="15px"
-                                        height="15px"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                    <div id="first-post">
+                        <img id="firstPostImage" src="" class="fullWidth" />
                     </div>
 
-                    <div class="juniorDevSectionPadding">
-                        <aside>
-                            <div class="profileInfo">
-                                <img
-                                    src="/assets/333862a1-0a15-479e-b0be-8e7da338b948.webp"
-                                    class="profileImage"
-                                    alt="profile picture of a guy smiling"
-                                />
-                                <div class="column">
-                                    <h3
-                                        style="
-                                            font-size: 16px;
-                                            color: rgb(64, 64, 64);
-                                        "
-                                    >
-                                        Rasaf Ibrahim
-                                    </h3>
-                                    <h4 class="profile-subtitle">Nov 18</h4>
-                                </div>
-                            </div>
-                        </aside>
-                        <div class="paddingOnDesktop">
-                            <h1 class="mainTitle">
-                                A guide to React Custom Hooks
-                            </h1>
-                            <aside class="tagSection">
-                                <p class="tags">#react</p>
-                                <p class="tags">#hook</p>
-                                <p class="tags">#javascript</p>
-                                <p class="tags">#webdev</p>
-                            </aside>
-
-                            <div class="emoji-section">
-                                <div class="setOfEmojis">
-                                    <p>💖</p>
-                                    <p>🦄</p>
-                                    <p>🤩</p>
-                                    <p>🙌</p>
-                                    <p>🔥</p>
-                                    <p class="emojiText">26</p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 5px"
-                                    >
-                                        reactions
-                                    </p>
-                                    <p
-                                        class="emojiText"
-                                        style="margin-left: 10px"
-                                    >
-                                        💬 2
-                                    </p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 10px"
-                                    >
-                                        comments
-                                    </p>
-                                </div>
-                                <div class="bookmarkSection">
-                                    3 min read
-                                    <img
-                                        src="assets/bookmark.png"
-                                        alt="bookmark icon"
-                                        width="15px"
-                                        height="15px"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="juniorDevSectionPadding">
-                        <aside>
-                            <div class="profileInfo">
-                                <img
-                                    src="/assets/9e63c9bc-4d9d-4638-b411-d0ec95dbb351.webp"
-                                    class="profileImage"
-                                    alt="profile picture of a guy smiling"
-                                />
-                                <div class="column">
-                                    <h3
-                                        style="
-                                            font-size: 16px;
-                                            color: rgb(64, 64, 64);
-                                        "
-                                    >
-                                        Scofield Idehen
-                                    </h3>
-                                    <h4 class="profile-subtitle">Nov 19</h4>
-                                </div>
-                            </div>
-                        </aside>
-                        <div class="paddingOnDesktop">
-                            <h1 class="mainTitle">
-                                Sam Altman: Corporate Collateral Damage?
-                            </h1>
-                            <aside class="tagSection">
-                                <p class="tags">#discuss</p>
-                                <p class="tags">#ai</p>
-                                <p class="tags">#openai</p>
-                                <p class="tags">#deeplearning</p>
-                            </aside>
-
-                            <div class="emoji-section">
-                                <div class="setOfEmojis">
-                                    <p>💖</p>
-                                    <p>🦄</p>
-                                    <p>🤩</p>
-                                    <p>🙌</p>
-                                    <p>🔥</p>
-                                    <p class="emojiText">5</p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 5px"
-                                    >
-                                        reactions
-                                    </p>
-                                    <p
-                                        class="emojiText"
-                                        style="margin-left: 10px"
-                                    >
-                                        💬
-                                    </p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 10px"
-                                    ></p>
-                                </div>
-                                <div class="bookmarkSection">
-                                    3 min read
-                                    <img
-                                        src="assets/bookmark.png"
-                                        alt="bookmark icon"
-                                        width="15px"
-                                        height="15px"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="juniorDevSectionPadding">
-                        <aside>
-                            <div class="profileInfo">
-                                <img
-                                    src="/assets/eca2026d-899d-42d6-b7a5-7eea107afbab.webp"
-                                    class="profileImage"
-                                    alt="profile picture of a guy smiling"
-                                />
-                                <div class="column">
-                                    <h3
-                                        style="
-                                            font-size: 16px;
-                                            color: rgb(64, 64, 64);
-                                        "
-                                    >
-                                        William V. Joaquim
-                                    </h3>
-                                    <h4 class="profile-subtitle">Nov 18</h4>
-                                </div>
-                            </div>
-                        </aside>
-                        <div class="paddingOnDesktop">
-                            <h1 class="mainTitle">
-                                Usando migrations com Golang
-                            </h1>
-                            <aside class="tagSection">
-                                <p class="tags">#go</p>
-                                <p class="tags">#braziliandevs</p>
-                                <p class="tags">#sql</p>
-                                <p class="tags">#beginners</p>
-                            </aside>
-
-                            <div class="emoji-section">
-                                <div class="setOfEmojis">
-                                    <p>💖</p>
-                                    <p>🦄</p>
-                                    <p>🤩</p>
-                                    <p>🙌</p>
-                                    <p>🔥</p>
-                                    <p class="emojiText">7</p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 5px"
-                                    >
-                                        reactions
-                                    </p>
-                                    <p
-                                        class="emojiText"
-                                        style="margin-left: 10px"
-                                    >
-                                        💬
-                                    </p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 10px"
-                                    ></p>
-                                </div>
-                                <div class="bookmarkSection">
-                                    5 min read
-                                    <img
-                                        src="assets/bookmark.png"
-                                        alt="bookmark icon"
-                                        width="15px"
-                                        height="15px"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="juniorDevSectionPadding">
-                        <aside>
-                            <div class="profileInfo">
-                                <img
-                                    src="/assets/f0514090-260b-4a34-89b0-a2b6e922d5ec.webp"
-                                    class="profileImage"
-                                    alt="profile picture of a guy smiling"
-                                />
-                                <div class="column">
-                                    <h3
-                                        style="
-                                            font-size: 16px;
-                                            color: rgb(64, 64, 64);
-                                        "
-                                    >
-                                        GrahamTheDev
-                                    </h3>
-                                    <h4 class="profile-subtitle">Nov 20</h4>
-                                </div>
-                            </div>
-                        </aside>
-                        <div class="paddingOnDesktop">
-                            <h1 class="mainTitle">
-                                Bootcamps don't teach you this...
-                            </h1>
-                            <aside class="tagSection">
-                                <p class="tags">#a11y</p>
-                                <p class="tags">#webdev</p>
-                                <p class="tags">#programming</p>
-                                <p class="tags">#beginners</p>
-                            </aside>
-
-                            <div class="emoji-section">
-                                <div class="setOfEmojis">
-                                    <p>💖</p>
-                                    <p>🦄</p>
-                                    <p>🤩</p>
-                                    <p>🙌</p>
-                                    <p>🔥</p>
-                                    <p class="emojiText">13</p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 5px"
-                                    >
-                                        reactions
-                                    </p>
-                                    <p
-                                        class="emojiText"
-                                        style="margin-left: 10px"
-                                    >
-                                        💬
-                                    </p>
-                                    <p
-                                        class="emojiText showOnTabletOnly"
-                                        style="margin-left: 10px"
-                                    ></p>
-                                </div>
-                                <div class="bookmarkSection">
-                                    5 min read
-                                    <img
-                                        src="assets/bookmark.png"
-                                        alt="bookmark icon"
-                                        width="15px"
-                                        height="15px"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Lalo section-->
-                    <div class="cajaFlex">
-                        <article class="articulo">
-                            <div class="contenedorImagen">
-                                <div class="">
-                                    <h4>DEV Community</h4>
-                                </div>
-
-                                <h2>Are You Ready for Your Weekly Top 7?</h2>
-                                <p>
-                                    Every Monday we present the seven most
-                                    outstanding posts from the previous week. If
-                                    you're looking for compelling and inspiring
-                                    content, search no further. Exceptional
-                                    contributions from our featured authors this
-                                    week include:
-                                </p>
-                            </div>
-
-                            <div class="cardsContainer">
-                                <div class="containerCard">
-                                    <div class="containerImag">
-                                        <a href="https://dev.to/srbhr">
-                                            <img
-                                                src="./assets/card1.png"
-                                                alt="#"
-                                            />
-                                        </a>
-                                    </div>
-
-                                    <div class="description">
-                                        <h2 class="descriptionCard">
-                                            Saurabh Rai
-                                        </h2>
-                                        <p>
-                                            Software Developer | GSoC'22 Mentor
-                                            (Weaviate) | Helping you get started
-                                            with Open Source | Building
-                                            ResumeMatcher.fyi ✨
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="containerCard2">
-                                    <div class="containerImag">
-                                        <a href="https://dev.to/srbhr">
-                                            <img
-                                                src="./assets/shefali.jpg"
-                                                alt="https://web.archive.org/web/20231118175059/https://dev.to/devshefali"
-                                            />
-                                        </a>
-                                    </div>
-
-                                    <div class="description">
-                                        <h2 class="descriptionCard">Shefali</h2>
-                                        <p>
-                                            I am a passionate web developer from
-                                            India. I find pleasure in talking
-                                            about programming and I love to help
-                                            everyone who needs any guidance
-                                            related to programming.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="containerCard3">
-                                    <div class="containerImag">
-                                        <a href="https://dev.to/srbhr">
-                                            <img
-                                                src="./assets/erik.jpg"
-                                                alt="https://web.archive.org/web/20231118175059/https://dev.to/daedtech"
-                                            />
-                                        </a>
-                                    </div>
-
-                                    <div class="description">
-                                        <h2 class="descriptionCard">
-                                            Erik Dietrich
-                                        </h2>
-                                        <p>
-                                            Former software developer,
-                                            architect, dev manager, CIO, and IT
-                                            management consultant. Occasional
-                                            writer. More than occasional remote
-                                            business owner.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="containerCard4">
-                                    <div class="containerImag">
-                                        <a href="https://dev.to/srbhr">
-                                            <img
-                                                src="./assets/isaac.jpg"
-                                                alt="#"
-                                            />
-                                        </a>
-                                    </div>
-
-                                    <div class="description">
-                                        <h2 class="descriptionCard">
-                                            Isaac Lyman
-                                        </h2>
-                                        <p>
-                                            Author of Your First Year in Code
-                                            (leanpub.com/firstyearincode). Find
-                                            more of my writing at
-                                            isaaclyman.com/blog.
-                                        </p>
-                                    </div>
-                                </div>
-                                <button class="cardButton">
-                                    Check out the Top 7 Now!
-                                </button>
-                            </div>
-                        </article>
-                    </div>
-                    <!--fin lalo section-->
+                    <div id="postsList"></div>
                 </section>
 
                 <!-- vero section -->
@@ -1223,4 +760,8 @@
         src="https://kit.fontawesome.com/acd114ba49.js"
         crossorigin="anonymous"
     ></script>
+    <script src="/js/main.js" type="module"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/utils.js" type="module"></script>
+    <script src="./js/search.js" type="module"></script>
 </html>
