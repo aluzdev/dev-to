@@ -7,11 +7,8 @@
 
 .grid {
     display: grid;
-    padding: 0 var(--layout-padding);
     height: 100vh;
-    gap: 0 var(--layout-gap);
     margin: 0 auto;
-    font-size: var(--fs-base);
     grid-template-columns: 100%;
     grid-template-rows: min-content 1fr min-content;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -47,4 +44,17 @@ h5 {
     margin: 0px;
     outline: none;
     transition: none 0s ease 0s;
+}
+
+.formInputFields {
+    display: flex;
+    flex-direction: column;
+}
+
+.notContent {
+    flex: 1;
+}
+
+.content {
+    flex: 2;
 }

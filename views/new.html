@@ -13,73 +13,79 @@
 
         <link rel="stylesheet" href="/css/new.css" />
     </head>
-    <body class="grid">
-        <nav class="topBar">
-            <h5>Create Post</h5>
-            <div>
-                <button class="btn btn-light" style="font-weight: 700">
-                    Edit
-                </button>
-                <button class="btn btn-light">Preview</button>
-                <button
-                    class="btn btn-close"
-                    style="padding-right: 10px"
-                ></button>
-            </div>
-        </nav>
-        <form class="newPostForm" id="newPostForm">
-            <input
-                name="title"
-                id="title"
-                style="font-size: 1.875rem"
-                class="ghostText"
-                type="text"
-                placeholder="New post title here"
-                required
-            />
-            <input
-                name="image"
-                id="image"
-                class="ghostText"
-                type="url"
-                placeholder="url of cover image"
-            />
-            <textarea
-                name="author"
-                id="author"
-                class="ghostText"
-                type="text"
-                placeholder="Author's name"
-                required
-            ></textarea>
-            <input
-                name="avatar"
-                id="avatar"
-                class="ghostText"
-                type="url"
-                placeholder="url of avatar image"
-                required
-            />
+    <body class="">
+        <form class="newPostForm grid" id="newPostForm">
+            <nav class="topBar">
+                <h5>Create Post</h5>
+                <div>
+                    <button class="btn btn-light" style="font-weight: 700">
+                        Edit
+                    </button>
+                    <button class="btn btn-light">Preview</button>
+                    <button
+                        class="btn btn-close"
+                        style="padding-right: 10px"
+                    ></button>
+                </div>
+            </nav>
+            <div class="formInputFields">
+                <div class="notContent">
+                    <input
+                        name="title"
+                        id="title"
+                        style="font-size: 1.875rem"
+                        class="ghostText"
+                        type="text"
+                        placeholder="New post title here"
+                        required
+                    />
+                    <input
+                        name="image"
+                        id="image"
+                        class="ghostText"
+                        type="url"
+                        placeholder="url of cover image"
+                    />
+                    <textarea
+                        name="author"
+                        id="author"
+                        class="ghostText"
+                        type="text"
+                        placeholder="Author's name"
+                        required
+                    ></textarea>
+                    <input
+                        name="avatar"
+                        id="avatar"
+                        class="ghostText"
+                        type="url"
+                        placeholder="url of avatar image"
+                        required
+                    />
 
-            <input
-                id="tags"
-                name="tags"
-                class="ghostText"
-                type="text"
-                placeholder="add up to 4 tags..."
-                required
-            />
-            <textarea
-                name="content"
-                id="content"
-                class="ghostText"
-                type="text"
-                placeholder="Write your post content here. . . "
-                required
-            ></textarea>
-            <button style="max-width: 150px">submit</button>
+                    <input
+                        id="tags"
+                        name="tags"
+                        class="ghostText"
+                        type="text"
+                        placeholder="add up to 4 tags..."
+                        required
+                    />
+                </div>
+                <div class="content">
+                    <textarea
+                        name="content"
+                        id="content"
+                        class="ghostText"
+                        type="text"
+                        placeholder="Write your post content here. . . "
+                        required
+                    ></textarea>
+                </div>
+                <button style="max-width: 150px">submit</button>
+            </div>
+            <div class="bottomOptions">publish should go here</div>
         </form>
-        <div class="bottomOptions">publish should go here</div>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
