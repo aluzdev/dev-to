@@ -45,8 +45,5 @@ newPostForm.addEventListener('submit', async (e) => {
     if (data.ok) console.log('data succesfuly posted')
     else console.log('error: Could not post', { data })
     newPostForm.reset()
-})
-
-submitButton.addEventListener('click', () => {
     window.location.href = '/'
 })
