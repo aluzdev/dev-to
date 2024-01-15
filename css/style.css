@@ -355,3 +355,7 @@ i {
         grid-template-columns: 232px minmax(480px, 2fr) 1fr;
     }
 }
+
+.postContainerPadding {
+    cursor: pointer;
+}
