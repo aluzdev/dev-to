@@ -6,14 +6,8 @@ const image = document.getElementById('image')
 const title = document.getElementById('title')
 const tags = document.getElementById('tags')
 const content = document.getElementById('content')
-const responseParagraph = document.getElementById('response')
-const testing = document.getElementById('testing')
 const avatarIcon = document.getElementById('avatar')
-
-const extractImageValues = (data) => {
-    if (!data) return
-    return data.map((post) => post.imageValue).filter(Boolean)
-}
+const submitButton = document.getElementById('submitPost')
 
 newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -48,25 +42,11 @@ newPostForm.addEventListener('submit', async (e) => {
     const data = await response
     console.log('database response:', { data })
 
-    if (data.ok)
-        responseParagraph.innerText =
-            'Your post was successfuly published! - check your console for more info'
-    else
-        responseParagraph.innerText =
-            'Something went horribly wrong - check your console'
+    if (data.ok) console.log('data succesfuly posted')
+    else console.log('error: Could not post', { data })
     newPostForm.reset()
 })
 
-const main = async () => {
-    const postsData = await getAllPosts()
-    const imagesOfAllPosts = extractImageValues(postsData)
-    console.log({ imagesOfAllPosts })
-    imagesOfAllPosts.forEach((image) => {
-        const imgTag = document.createElement('img')
-        imgTag.src = image
-        imgTag.width = '100'
-        imgTag.height = '100'
-        testing.append(imgTag)
-    })
-}
-main()
+submitButton.addEventListener('click', () => {
+    window.location.href = '/'
+})
