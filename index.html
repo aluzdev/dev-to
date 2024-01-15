@@ -49,6 +49,15 @@
                         <button class="logoutHeader" onclick="removeToken()">
                             Logout
                         </button>
+                        <a href="./views/new.html"
+                            ><button class="logoutHeader">
+                                Create Post
+                            </button></a
+                        >
+                        <i
+                            class="fa-regular fa-bell"
+                            style="font-size: 20px"
+                        ></i>
                     </div>
                 </section>
             </div>
@@ -56,7 +65,7 @@
         <main>
             <div class="mainContainer">
                 <aside class="asideLeft">
-                    <section class="logInBox">
+                    <section id="devCommunity" class="logInBox">
                         <h2 class="titleLogIn">
                             DEV Community is a community of 1,192,404 amazing
                             developers
@@ -66,8 +75,14 @@
                             up-to-date and grow their careers.
                         </p>
                         <div class="logInButtons">
-                            <a href="/" id="createAccountBtn">Create account</a>
-                            <a href="/" id="logInAside">Log In</a>
+                            <a
+                                href="./views/registration.html"
+                                id="createAccountBtn"
+                                >Create account</a
+                            >
+                            <a href="./views/login.html" id="logInAside"
+                                >Log In</a
+                            >
                         </div>
                     </section>
                     <nav class="asideNav">
@@ -298,6 +313,7 @@
                         <a href="/">Latest </a>
                         <a href="/">Top </a>
                     </div>
+
                     <div id="first-post">
                         <img id="firstPostImage" src="" class="fullWidth" />
                     </div>
@@ -760,8 +776,14 @@
         src="https://kit.fontawesome.com/acd114ba49.js"
         crossorigin="anonymous"
     ></script>
+
     <script src="/js/main.js" type="module"></script>
+
     <script src="./js/login.js"></script>
     <script src="./js/utils.js" type="module"></script>
+
+    <script type="module" src="./js/post.js"></script>
+
     <script src="./js/search.js" type="module"></script>
+
 </html>

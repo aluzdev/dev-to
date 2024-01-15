@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="../css/postStyile.css" />
+        <title>Document</title>
+    </head>
+    <body class="container">
+        <header>
+            <div class="headerContainer">
+                <section class="hamburgerContainer">
+                    <div class="hamburger">
+                        <i class="fa-solid fa-bars" style="font-size: 25px"></i>
+                    </div>
+                    <a href="../index.html">
+                        <img src="../assets/dev.png" class="logo" alt="logo"
+                    /></a>
+                    <div class="inputContainer">
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            class="inputNav"
+                        /><i
+                            class="fa-solid fa-magnifying-glass inputGlass"
+                            style="font-size: 20px"
+                        ></i>
+                    </div>
+                </section>
+
+                <section class="searchContainer">
+                    <div class="search">
+                        <i
+                            class="fa-solid fa-magnifying-glass glassIcon"
+                            style="font-size: 25px"
+                        ></i>
+                    </div>
+
+                    <div class="logInHeader" id="logInHeader">
+                        <a href="../views/login.html">Log in</a>
+                    </div>
+                    <a
+                        href="../views/registration.html"
+                        id="createAccountHeader"
+                        >Create account</a
+                    >
+                    <div id="logOutButton">
+                        <button class="logoutHeader" onclick="removeToken()">
+                            Logout
+                        </button>
+                        <a href="../views/new.html"
+                            ><button class="logoutHeader">
+                                Create Post
+                            </button></a
+                        >
+                        <i
+                            class="fa-regular fa-bell"
+                            style="font-size: 20px"
+                        ></i>
+                    </div>
+                </section>
+            </div>
+        </header>
+
+        <main class="d-flex justify-content-center align-items-centers">
+            <div class="d-flex">
+                <aside class="asidePost d-flex flex-column align-items-center">
+                    <i class="fa-solid fa-heart-circle-plus"></i>
+                    <p>17</p>
+                    <i class="fa-regular fa-message"></i>
+                    <p>7</p>
+                    <i class="fa-regular fa-bookmark"></i>
+                    <p>4</p>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </aside>
+
+                <section id="postContainer">
+                    <img src="" alt="" id="firstImage" />
+                    <div class="m-5">
+                        <div class="d-flex">
+                            <img src="" alt="image" id="avatar" />
+                            <div
+                                class="d-flex flex-column"
+                                style="padding-left: 10px"
+                            >
+                                <p id="author" class="mb-0"></p>
+
+                                <i
+                                    ><p class="mt-0" style="font-size: 13px">
+                                        Posted on Jan 13
+                                    </p></i
+                                >
+                            </div>
+                        </div>
+                        <div class="d-flex d-grid gap-3">
+                            <p>&#128150; 10</p>
+                            <p>&#129412; 2</p>
+                            <p>&#129327; 1</p>
+                            <p>🙌 10</p>
+                            <p>&#128293; 3</p>
+                        </div>
+                        <h1 id="contentTitle"></h1>
+                        <p id="tags"></p>
+                        <p id="content"></p>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <div
+                            style="margin: 30px"
+                            class="d-flex justify-content-between"
+                        >
+                            <h2>Top Comments (3)</h2>
+                            <button class="subscribeBtn">Subscribe</button>
+                        </div>
+                        <div class="d-flex">
+                            <img
+                                class="commentImg"
+                                src="../assets/donald.jpeg"
+                                alt="profile image"
+                            />
+                            <div>
+                                <div
+                                    class="d-flex flex-column commentContainer"
+                                >
+                                    <div class="d-flex">
+                                        <h6 style="margin: 8px">
+                                            Donald Trump
+                                        </h6>
+                                        <i>
+                                            <p
+                                                style="
+                                                    margin-top: 7px;
+                                                    margin-right: 7px;
+                                                    font-size: 14px;
+                                                "
+                                            >
+                                                jan 15
+                                            </p></i
+                                        >
+                                    </div>
+                                    <div class="commentText">
+                                        ¡Hagamos que este sitio web sea
+                                        grandioso! Los genios detrás de esta
+                                        increíble página merecen más que
+                                        aplausos, ¡merecen una visa de trabajo
+                                        para contribuir aún más al éxito de esta
+                                        nación digital! Su habilidad para crear
+                                        algo tan tremendo merece reconocimiento
+                                        y oportunidades ilimitadas. ¡Vamos a
+                                        hacer que esta página sea la mejor, la
+                                        más grandiosa que el mundo haya visto
+                                        jamás y denles una visa de trabajo.Lets
+                                        Make America great Again!
+                                    </div>
+                                </div>
+                                <div class="emoticons d-flex d-grid gap-3">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <p>20,469 like</p>
+                                    <i class="fa-regular fa-comment"></i>
+                                    <p>Reply</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <img
+                                class="commentImg"
+                                src="../assets/jeff.jpg"
+                                alt="profile image"
+                            />
+                            <div>
+                                <div
+                                    class="d-flex flex-column commentContainer"
+                                >
+                                    <div class="d-flex">
+                                        <h6 style="margin: 8px">Jeff Bezos</h6>
+                                        <i>
+                                            <p
+                                                style="
+                                                    margin-top: 7px;
+                                                    margin-right: 7px;
+                                                    font-size: 14px;
+                                                "
+                                            >
+                                                jan 15
+                                            </p></i
+                                        >
+                                    </div>
+                                    <div class="commentText">
+                                        Los visionarios detrás de esta
+                                        plataforma han demostrado una destreza
+                                        excepcional en el desarrollo web. Su
+                                        dedicación y talento son verdaderamente
+                                        admirables, y creo firmemente que
+                                        merecen todas las oportunidades para
+                                        seguir elevando el estándar en la
+                                        industria. No solo han creado una página
+                                        web, sino que han construido un legado
+                                        digital. Les insto a que sigan innovando
+                                        y expandiendo sus horizontes. ¡El futuro
+                                        de la web está en sus manos!
+                                    </div>
+                                </div>
+                                <div class="emoticons d-flex d-grid gap-3">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <p>17,345 like</p>
+                                    <i class="fa-regular fa-comment"></i>
+                                    <p>Reply</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <img
+                                class="commentImg"
+                                src="../assets/profe.png"
+                                alt="profile image"
+                            />
+                            <div>
+                                <div
+                                    class="d-flex flex-column commentContainer"
+                                >
+                                    <div class="d-flex">
+                                        <h6 style="margin: 8px">
+                                            Israel Salinas
+                                        </h6>
+                                        <i>
+                                            <p
+                                                style="
+                                                    margin-top: 7px;
+                                                    margin-right: 7px;
+                                                    font-size: 14px;
+                                                "
+                                            >
+                                                jan 15
+                                            </p></i
+                                        >
+                                    </div>
+                                    <div class="commentText">Gracias Ana</div>
+                                </div>
+                                <div class="emoticons d-flex d-grid gap-3">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <p>15,783 like</p>
+                                    <i class="fa-regular fa-comment"></i>
+                                    <p>Reply</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="asideCard">
+                    <!-- Card Goes Here -->
+                    <div class="card">
+                        <div class="topColorCard"></div>
+                        <div class="d-flex align-items-center">
+                            <img src="" id="imgCard" alt="Card Image" />
+                            <p id="cardAuthor" style="margin-left: 10px"></p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="cardBtn">Follow</button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Related Post</h5>
+                            <p class="card-text">
+                                👋Hi, <span id="name"></span> transitioning from
+                                hospitality to software engineering. Excited
+                                about this career change, I'll be sharing my
+                                coding journey and projects here. Let's explore
+                                tech together! 🚀.
+                            </p>
+                            <div>
+                                <h6>Location</h6>
+                                <p>Tangamandapio, Mexico</p>
+                            </div>
+                            <div>
+                                <h6>Joined</h6>
+                                <p>Jan 13, 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <script src="../js/postDetails.js"></script>
+
+        <script
+            src="https://kit.fontawesome.com/acd114ba49.js"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
