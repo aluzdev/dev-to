@@ -42,6 +42,8 @@ const addData = () => {
     storedCredentials.push({ email, password })
 
     localStorage.setItem('userCredentials', JSON.stringify(storedCredentials))
+
+    updateHTMLAfterToken()
     createToken()
 }
 
