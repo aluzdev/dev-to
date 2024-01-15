@@ -6,14 +6,8 @@ const image = document.getElementById('image')
 const title = document.getElementById('title')
 const tags = document.getElementById('tags')
 const content = document.getElementById('content')
-const responseParagraph = document.getElementById('response')
-const testing = document.getElementById('testing')
 const avatarIcon = document.getElementById('avatar')
-
-const extractImageValues = (data) => {
-    if (!data) return
-    return data.map((post) => post.imageValue).filter(Boolean)
-}
+const submitButton = document.getElementById('submitPost')
 
 newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -51,4 +45,8 @@ newPostForm.addEventListener('submit', async (e) => {
     if (data.ok) console.log('data succesfuly posted')
     else console.log('error: Could not post', { data })
     newPostForm.reset()
+})
+
+submitButton.addEventListener('click', () => {
+    window.location.href = '/'
 })
