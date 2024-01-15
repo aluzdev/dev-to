@@ -52,11 +52,13 @@ h5 {
     margin: 0px;
     outline: none;
     transition: none 0s ease 0s;
+    font-size: 18px;
 }
 
 .formInputFields {
     display: flex;
     flex-direction: column;
+    padding: 12px;
 }
 
 .notContent {
@@ -64,8 +66,16 @@ h5 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-height: 280px;
 }
 
 .content {
     flex: 2;
+}
+
+.textArea {
+    height: 100%;
+    font-size: 18px;
+    font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
+        Courier, monospace;
 }
