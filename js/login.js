@@ -1,6 +1,7 @@
 const loginHeader = document.getElementById('logInHeader')
 const createAccount = document.getElementById('createAccountHeader')
 const logoutContainer = document.getElementById('logOutButton')
+const asideDev = document.getElementById('devCommunity')
 
 const isAuthenticated = () => {
     const token = localStorage.getItem('userToken')
@@ -8,14 +9,16 @@ const isAuthenticated = () => {
 }
 
 const updateHtml = () => {
-    if (loginHeader && createAccount && logoutContainer) {
+    if (loginHeader && createAccount && logoutContainer && asideDev) {
         if (isAuthenticated()) {
             loginHeader.style.display = 'none'
             createAccount.style.display = 'none'
+            asideDev.style.display = 'none'
             logoutContainer.style.display = 'block'
         } else {
             loginHeader.style.display = 'block'
             createAccount.style.display = 'block'
+            asideDev.style.display = 'block'
             logoutContainer.style.display = 'none'
         }
     } else {
@@ -39,6 +42,7 @@ const addData = () => {
     storedCredentials.push({ email, password })
 
     localStorage.setItem('userCredentials', JSON.stringify(storedCredentials))
+    createToken()
 }
 
 const checkData = () => {
@@ -55,6 +59,7 @@ const checkData = () => {
     if (user) {
         if (enterPwd === user.password) {
             alert('login Successful')
+            createToken()
         } else {
             alert('wrong password')
         }
