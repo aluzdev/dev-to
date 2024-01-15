@@ -1,18 +1,21 @@
 import { getAllPosts } from './utils.js';
-console.log("Si esta jalanhdo");
-const findPostByTitleValue = async () => {
 
-        let postsObject = await getAllPosts();
-        let searchInput = document.getElementById('search-input');
-        let title = searchInput.value.toLowerCase();
+console.log("Si está jalando");
 
-        // Busca el primer post que cumple con el título
-        const foundPost = Object.values(postsObject).find((post) => post.titleValue.toLowerCase().includes(title));
+const findPostsByTitleValue = async () => {
+    let postsObject = await getAllPosts();
+    let searchInput = document.getElementById('search-input');
+    let title = searchInput.value.toLowerCase();
 
-        if (foundPost) {
-            console.log('Post Found:', foundPost);
-        }
+    // Filtra todos los posts que cumplen con el título
+    const matchingPosts = Object.values(postsObject).filter((post) => post.titleValue.toLowerCase().includes(title));
+
+    if (matchingPosts.length > 0) {
+        console.log('Posts Found:', matchingPosts);
+    } else {
+        console.log('No matching posts found.');
+    }
 };
 
 let searchInput = document.getElementById('search-input');
-searchInput.addEventListener('input', findPostByTitleValue);
+searchInput.addEventListener('input', findPostsByTitleValue);
