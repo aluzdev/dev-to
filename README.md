@@ -1,2 +1,2 @@
-# proyectoMaquetado
-Primer Pagina web en equipo 
+# Dev.to clone
+Desafío final del módulo de JavaScript
