@@ -28,64 +28,55 @@
             </div>
         </nav>
         <form class="newPostForm" id="newPostForm">
-            <label for="author"
-                >author:
-                <input
-                    type="text"
-                    name="author"
-                    id="author"
-                    placeholder="Dr. Hussain"
-                    required
-            /></label>
-            <label for="avatar"
-                >avatar:
-                <input
-                    type="url"
-                    name="avatar"
-                    id="avatar"
-                    placeholder="url of an image"
-                    required
-            /></label>
-            <label for="image">
-                image:
-                <input
-                    type="url"
-                    name="image"
-                    id="image"
-                    placeholder="url of an image"
-                    value="https://static01.nyt.com/images/2022/04/04/multimedia/15ai-nocode/15ai-nocode-videoSixteenByNineJumbo1600.jpg"
-                />
-            </label>
-            <label for="title" value="cute dogs are cute">
-                title:
-                <input
-                    type="text"
-                    name="title"
-                    id="title"
-                    placeholder="2024's best AI tools for dev"
-                    required
-                />
-            </label>
-            <label for="tags">
-                tags:
-                <input
-                    type="text"
-                    name="tags"
-                    id="tags"
-                    placeholder="#javascript, #react, #css"
-                    required
-                />
-            </label>
-            <label for="content">
-                content:
-                <textarea
-                    type="text"
-                    name="content"
-                    id="content"
-                    placeholder="lorem ipsum dolor"
-                    required
-                ></textarea>
-            </label>
+            <input
+                name="title"
+                id="title"
+                style="font-size: 1.875rem"
+                class="ghostText"
+                type="text"
+                placeholder="New post title here"
+                required
+            />
+            <input
+                name="image"
+                id="image"
+                class="ghostText"
+                type="url"
+                placeholder="url of cover image"
+            />
+            <textarea
+                name="author"
+                id="author"
+                class="ghostText"
+                type="text"
+                placeholder="Author's name"
+                required
+            ></textarea>
+            <input
+                name="avatar"
+                id="avatar"
+                class="ghostText"
+                type="url"
+                placeholder="url of avatar image"
+                required
+            />
+
+            <input
+                id="tags"
+                name="tags"
+                class="ghostText"
+                type="text"
+                placeholder="add up to 4 tags..."
+                required
+            />
+            <textarea
+                name="content"
+                id="content"
+                class="ghostText"
+                type="text"
+                placeholder="Write your post content here. . . "
+                required
+            ></textarea>
             <button style="max-width: 150px">submit</button>
         </form>
         <div class="bottomOptions">publish should go here</div>
