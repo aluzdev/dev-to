@@ -51,9 +51,6 @@ const addJavascriptPostsToSideList = async () => {
             titleValue,
         } = post
 
-        const container = document.createElement('div')
-        container.classList.add('sideCard')
-
         // Create a div element for the linkAndCommentSection
         const linkAndCommentSection = document.createElement('div')
         linkAndCommentSection.classList.add('linkAndCommentSection')
@@ -79,13 +76,8 @@ const addJavascriptPostsToSideList = async () => {
         // Append the anchor element to the linkAndCommentSection
         linkAndCommentSection.appendChild(link)
 
-        // Append the linkAndCommentSection to the container
-        container.appendChild(linkAndCommentSection)
-        console.log({ linkAndCommentSection })
-        console.log({ container })
-
         // Append the container to the sideCardContainer
-        sideCardContainer.appendChild(container)
+        sideCardContainer.appendChild(linkAndCommentSection)
     })
 }
 
