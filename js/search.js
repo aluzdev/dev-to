@@ -38,8 +38,16 @@ const addJavascriptPostsToSideList = async () => {
     const sideCardContainer = document.getElementById('sideCardContainer') //el papi
     const javascriptPosts = await getAllJavascriptPosts()
     console.log({ javascriptPosts })
+    const firstThreePosts = javascriptPosts.slice(0, 3)
+    // Create the outer div with the "sideCard" class
+    const sideCard = document.createElement('div')
+    sideCard.classList.add('sideCard')
+    // Create the card title paragraph with the "cardTitle" class
+    const cardTitle = document.createElement('p')
+    cardTitle.classList.add('cardTitle')
+    cardTitle.textContent = '#css'
 
-    javascriptPosts.forEach((post) => {
+    firstThreePosts.forEach((post) => {
         const {
             authorValue,
             avatar,
@@ -51,33 +59,31 @@ const addJavascriptPostsToSideList = async () => {
             titleValue,
         } = post
 
-        // Create a div element for the linkAndCommentSection
-        const linkAndCommentSection = document.createElement('div')
-        linkAndCommentSection.classList.add('linkAndCommentSection')
+        // Create the first link and comment section
+        const linkAndCommentSection1 = document.createElement('div')
+        linkAndCommentSection1.classList.add('linkAndCommentSection')
 
-        // Create an anchor element for the link
-        const link = document.createElement('a')
-        link.href = `https://dev.to/${authorValue}/${id}`
-        link.classList.add('sideCardLink')
+        const link1 = document.createElement('a')
+        link1.href = `/views/post.html?.id=${id}`
+        link1.classList.add('sideCardLink')
 
-        // Create a paragraph element for the titleValue
-        const titleParagraph = document.createElement('p')
-        titleParagraph.textContent = titleValue
+        const title1 = document.createElement('p')
+        title1.textContent = '??????????????????????'
 
-        // Create a paragraph element for the comment count
-        const commentParagraph = document.createElement('p')
-        commentParagraph.classList.add('sideCardComment')
-        commentParagraph.textContent = `${randomNumber(1, 10)} comments`
+        const comment1 = document.createElement('p')
+        comment1.classList.add('sideCardComment')
+        comment1.textContent = '2 comments'
 
-        // Append the title and comment paragraphs to the anchor element
-        link.appendChild(titleParagraph)
-        link.appendChild(commentParagraph)
+        link1.appendChild(title1)
+        link1.appendChild(comment1)
 
-        // Append the anchor element to the linkAndCommentSection
-        linkAndCommentSection.appendChild(link)
+        linkAndCommentSection1.appendChild(link1)
 
-        // Append the container to the sideCardContainer
-        sideCardContainer.appendChild(linkAndCommentSection)
+        // Append all link and comment sections to the outer div
+        sideCard.appendChild(linkAndCommentSection1)
+
+        // Append the entire sideCard to your document or a parent container as needed
+        sideCardContainer.appendChild(sideCard) // You can adjust this to your needs
     })
 }
 
