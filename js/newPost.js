@@ -7,7 +7,11 @@ const title = document.getElementById('title')
 const tags = document.getElementById('tags')
 const content = document.getElementById('content')
 const avatarIcon = document.getElementById('avatar')
-const submitButton = document.getElementById('submitPost')
+
+const randomBoolean = () => Math.random() < 0.5
+const randomRating = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
 newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -20,6 +24,8 @@ newPostForm.addEventListener('submit', async (e) => {
     const tagsValue = tags.value
     const contentValue = content.value
     const creationDate = new Date()
+    const relevant = randomBoolean()
+    const rating = randomRating(1, 10)
 
     const postData = {
         authorValue,
@@ -29,6 +35,8 @@ newPostForm.addEventListener('submit', async (e) => {
         tagsValue,
         contentValue,
         creationDate,
+        relevant,
+        rating,
     }
 
     console.log('sending the following information to the database:', {
