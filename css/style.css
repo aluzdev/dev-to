@@ -338,6 +338,7 @@ i {
     border-radius: 8px;
 }
 
+
 /* not part of the navbar don't touch */
 
 .mainContainer {
@@ -358,4 +359,19 @@ i {
 
 .postContainerPadding {
     cursor: pointer;
+}
+
+.filter-button {
+    text-decoration: none;
+    color: #575757;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: #fff;
+    color: #3b49df;
+    border-radius: 8px;
 }

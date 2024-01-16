@@ -37,7 +37,6 @@ const randomNumber = (min, max) => {
 const addFilteredPostsToSideBar = async (filter) => {
     const sideCardContainer = document.getElementById('sideCardContainer') //el papi
     const filteredPosts = await getAllFilteredPosts(filter)
-    console.log({ filteredPosts })
     const firstThreePosts = filteredPosts.slice(0, 3)
     // Create the outer div with the "sideCard" class
     const sideCard = document.createElement('div')
