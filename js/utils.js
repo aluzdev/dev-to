@@ -219,4 +219,13 @@ export const addPostsToList = (postsData) => {
         const postElement = createPostElement(post)
         postsList.appendChild(postElement)
     })
+
+    const newPagePost = document.querySelectorAll('.postContainerPadding')
+
+    newPagePost.forEach((postContainer) => {
+        postContainer.addEventListener('click', () => {
+            let id = postContainer.id
+            window.open(`views/post.html?.id=${id}`)
+        })
+    })
 }
