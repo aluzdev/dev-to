@@ -34,7 +34,7 @@ const randomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-const addJavascriptPostsToSideList = async () => {
+const addJavascriptPostsToSideList = async (filter) => {
     const sideCardContainer = document.getElementById('sideCardContainer') //el papi
     const javascriptPosts = await getAllJavascriptPosts()
     console.log({ javascriptPosts })
@@ -45,7 +45,8 @@ const addJavascriptPostsToSideList = async () => {
     // Create the card title paragraph with the "cardTitle" class
     const cardTitle = document.createElement('p')
     cardTitle.classList.add('cardTitle')
-    cardTitle.textContent = '#css'
+    cardTitle.textContent = `${filter}`
+    sideCard.append(cardTitle)
 
     firstThreePosts.forEach((post) => {
         const {
@@ -68,11 +69,11 @@ const addJavascriptPostsToSideList = async () => {
         link1.classList.add('sideCardLink')
 
         const title1 = document.createElement('p')
-        title1.textContent = '??????????????????????'
+        title1.textContent = `${titleValue}`
 
         const comment1 = document.createElement('p')
         comment1.classList.add('sideCardComment')
-        comment1.textContent = '2 comments'
+        comment1.textContent = `${randomNumber(3, 100)} comments`
 
         link1.appendChild(title1)
         link1.appendChild(comment1)
@@ -87,4 +88,4 @@ const addJavascriptPostsToSideList = async () => {
     })
 }
 
-addJavascriptPostsToSideList()
+addJavascriptPostsToSideList('#javascript')
