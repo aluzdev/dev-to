@@ -22,23 +22,23 @@ const findPostsByTitleValue = async () => {
 let searchInput = document.getElementById('search-input')
 searchInput.addEventListener('input', findPostsByTitleValue)
 
-const getAllJavascriptPosts = async () => {
+const getAllFilteredPosts = async (filter) => {
     const allPosts = await getAllPosts()
-    const javascriptPosts = allPosts.filter((post) =>
-        post.tagsValue.includes('javascript')
+    const filteredPosts = allPosts.filter((post) =>
+        post.tagsValue.includes(filter)
     )
-    return javascriptPosts
+    return filteredPosts
 }
 
 const randomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-const addJavascriptPostsToSideList = async (filter) => {
+const addFilteredPostsToSideBar = async (filter) => {
     const sideCardContainer = document.getElementById('sideCardContainer') //el papi
-    const javascriptPosts = await getAllJavascriptPosts()
-    console.log({ javascriptPosts })
-    const firstThreePosts = javascriptPosts.slice(0, 3)
+    const filteredPosts = await getAllFilteredPosts(filter)
+    console.log({ filteredPosts })
+    const firstThreePosts = filteredPosts.slice(0, 3)
     // Create the outer div with the "sideCard" class
     const sideCard = document.createElement('div')
     sideCard.classList.add('sideCard')
@@ -49,16 +49,7 @@ const addJavascriptPostsToSideList = async (filter) => {
     sideCard.append(cardTitle)
 
     firstThreePosts.forEach((post) => {
-        const {
-            authorValue,
-            avatar,
-            contentValue,
-            creationDate,
-            id,
-            imageValue,
-            tagsValue,
-            titleValue,
-        } = post
+        const { id, titleValue } = post
 
         // Create the first link and comment section
         const linkAndCommentSection1 = document.createElement('div')
@@ -88,4 +79,6 @@ const addJavascriptPostsToSideList = async (filter) => {
     })
 }
 
-addJavascriptPostsToSideList('#javascript')
+addFilteredPostsToSideBar('#javascript')
+addFilteredPostsToSideBar('#css')
+addFilteredPostsToSideBar('#python')
