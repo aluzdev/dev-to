@@ -1,3 +1,4 @@
+
 import { getAllPosts } from './utils.js'
 import { addPostsToList } from './utils.js'
 
@@ -23,3 +24,4 @@ const findPostsByTitleValue = async () => {
 
 let searchInput = document.getElementById('search-input')
 searchInput.addEventListener('input', findPostsByTitleValue)
+
