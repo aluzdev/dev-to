@@ -326,13 +326,14 @@ i {
     margin-left: 10px;
 }
 
-.middleNav a {
+.middleNav button {
     text-decoration: none;
     color: #575757;
     padding: 8px 12px;
+    border: none;
 }
 
-.middleNav a:hover {
+.middleNav button:hover {
     background-color: #fff;
     color: #3b49df;
     border-radius: 8px;

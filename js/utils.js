@@ -22,7 +22,6 @@ export const getAllPosts = async () => {
 
         return allPosts
     } catch (error) {
-        // Handle errors gracefully, e.g., log or throw a custom error
         console.error('Error fetching data:', error)
         throw error
     }
@@ -132,7 +131,6 @@ const createPostElement = (postData) => {
 
     // Append main content elements
     mainContent.appendChild(title)
-    mainContent.appendChild(tagSection)
 
     // Create the emoji section
     const emojiSection = document.createElement('div')
@@ -208,10 +206,13 @@ description: Receives an array of posts and places them in the posts list
 @output: each post in the given array is placed in the main page.
 */
 export const addPostsToList = (postsData) => {
+    console.log('Adding posts to list:', postsData)
+
     const postsList = document.getElementById('postsList')
     const locationToInsertFirstPostImage =
         document.getElementById('firstPostImage')
     postsList.innerHTML = ''
+
     const firstPostImage = postsData[0].imageValue
     locationToInsertFirstPostImage.src = firstPostImage
 
