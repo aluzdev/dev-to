@@ -18,7 +18,7 @@ export const getAllPosts = async () => {
             ...data.posts[id],
             id,
         }))
-        console.log({ allPosts })
+        // console.log({ allPosts })
 
         return allPosts
     } catch (error) {
