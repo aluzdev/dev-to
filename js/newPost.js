@@ -15,7 +15,8 @@ const randomRating = (min, max) => {
 
 newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const url = 'https://dev-to-fcbcc-default-rtdb.firebaseio.com/posts/.json'
+    // const url = 'https://dev-to-fcbcc-default-rtdb.firebaseio.com/posts/.json'
+    const url= 'http://127.0.0.1:5002/posts'
 
     const authorValue = author.value
     const avatar = avatarIcon.value

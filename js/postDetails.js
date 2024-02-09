@@ -1,12 +1,11 @@
 const urlParams = new URLSearchParams(window.location.search)
 const postId = urlParams.get('.id')
 const newPost = document.getElementById('postContainer')
+const baseURL = 'http://127.0.0.1:5002/posts'
 
 const getPostById = async (postID) => {
     try {
-        let response = await fetch(
-            `https://dev-to-fcbcc-default-rtdb.firebaseio.com/posts/${postID}/.json`
-        )
+        const response = await fetch(`${baseURL}/`)
 
         if (!response.ok) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`)

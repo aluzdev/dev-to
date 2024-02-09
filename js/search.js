@@ -25,9 +25,10 @@ searchInput.addEventListener('input', findPostsByTitleValue)
 const getAllFilteredPosts = async (filter) => {
     const allPosts = await getAllPosts()
     const filteredPosts = allPosts.filter((post) =>
-        post.tagsValue.includes(filter)
+        post.tags.includes(filter)
     )
     return filteredPosts
+
 }
 
 const randomNumber = (min, max) => {
