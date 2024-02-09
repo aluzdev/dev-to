@@ -1,14 +1,14 @@
-import { getAllPosts } from './utils.js'
+import { getAllPosts, backend_url } from './utils.js'
 import { addPostsToList } from './utils.js'
 
-const findPostsByTitleValue = async () => {
+const findPostsBytitle = async () => {
     let postsObject = await getAllPosts()
     let searchInput = document.getElementById('search-input')
     let title = searchInput.value.toLowerCase()
 
     // Filtra todos los posts que cumplen con el título
     const matchingPosts = Object.values(postsObject).filter((post) =>
-        post.titleValue.toLowerCase().includes(title)
+        post.title.toLowerCase().includes(title)
     )
 
     if (matchingPosts.length > 0) {
@@ -20,12 +20,12 @@ const findPostsByTitleValue = async () => {
 }
 
 let searchInput = document.getElementById('search-input')
-searchInput.addEventListener('input', findPostsByTitleValue)
+searchInput.addEventListener('input', findPostsBytitle)
 
 const getAllFilteredPosts = async (filter) => {
     const allPosts = await getAllPosts()
-    const filteredPosts = allPosts.filter((post) =>
-        post.tagsValue.includes(filter)
+    const filteredPosts = allPosts.filter(
+        (post) => post.tags?.includes(filter) //there seems to be a problem with tags here, come back
     )
     return filteredPosts
 }
@@ -48,7 +48,7 @@ const addFilteredPostsToSideBar = async (filter) => {
     sideCard.append(cardTitle)
 
     firstThreePosts.forEach((post) => {
-        const { id, titleValue } = post
+        const { id, title } = post
 
         // Create the first link and comment section
         const linkAndCommentSection1 = document.createElement('div')
@@ -59,7 +59,7 @@ const addFilteredPostsToSideBar = async (filter) => {
         link1.classList.add('sideCardLink')
 
         const title1 = document.createElement('p')
-        title1.textContent = `${titleValue}`
+        title1.textContent = `${title}`
 
         const comment1 = document.createElement('p')
         comment1.classList.add('sideCardComment')

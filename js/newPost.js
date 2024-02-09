@@ -1,12 +1,12 @@
 import { getAllPosts } from './utils.js'
 
 const newPostForm = document.getElementById('newPostForm')
-const author = document.getElementById('author')
-const image = document.getElementById('image')
-const title = document.getElementById('title')
-const tags = document.getElementById('tags')
-const content = document.getElementById('content')
-const avatarIcon = document.getElementById('avatar')
+const authorInput = document.getElementById('author')
+const imageInput = document.getElementById('image')
+const titleInput = document.getElementById('title')
+const tagsInput = document.getElementById('tags')
+const contentInput = document.getElementById('content')
+const avatarInput = document.getElementById('avatar')
 
 const randomBoolean = () => Math.random() < 0.5
 const randomRating = (min, max) => {
@@ -17,23 +17,23 @@ newPostForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     const url = 'https://dev-to-fcbcc-default-rtdb.firebaseio.com/posts/.json'
 
-    const authorValue = author.value
-    const avatar = avatarIcon.value
-    const imageValue = image.value
-    const titleValue = title.value
-    const tagsValue = tags.value
-    const contentValue = content.value
+    const author = authorInput.value
+    const avatar = avatarInput.value
+    const image = imageInput.value
+    const title = titleInput.value
+    const tags = tagsInput.value
+    const content = contentInput.value
     const creationDate = new Date()
     const relevant = randomBoolean()
     const rating = randomRating(1, 10)
 
     const postData = {
-        authorValue,
+        author,
         avatar,
-        imageValue,
-        titleValue,
-        tagsValue,
-        contentValue,
+        image,
+        title,
+        tags,
+        content,
         creationDate,
         relevant,
         rating,

@@ -1,5 +1,5 @@
 const API_URL = 'https://dev-to-fcbcc-default-rtdb.firebaseio.com/.json'
-const backend_url = 'http://localhost:1337'
+export const backend_url = 'http://localhost:1337'
 export const getAllPosts = async () => {
     try {
         const response = await fetch(`${backend_url}/posts`)
@@ -61,16 +61,8 @@ const formatDateAndTimeAgo = (dateString) => {
 
 //helper function for addPostsToList
 const createPostElement = (postData) => {
-    const {
-        authorValue,
-        avatar,
-        contentValue,
-        creationDate,
-        id,
-        imageValue,
-        tagsValue,
-        titleValue,
-    } = postData
+    const { author, avatar, content, creationDate, id, image, tags, title } =
+        postData
 
     // Create the main post container
     const postContainer = document.createElement('div')
@@ -91,7 +83,7 @@ const createPostElement = (postData) => {
     const authorName = document.createElement('h3')
     authorName.style.fontSize = '16px'
     authorName.style.color = 'rgb(64, 64, 64)'
-    authorName.textContent = authorValue
+    authorName.textContent = author
 
     const creationDateElement = document.createElement('h4')
     creationDateElement.className = 'profile-subtitle'
@@ -108,15 +100,15 @@ const createPostElement = (postData) => {
     const mainContent = document.createElement('div')
     mainContent.className = 'paddingOnDesktop'
 
-    const title = document.createElement('h1')
-    title.className = 'mainTitle'
-    title.textContent = titleValue
+    const h1 = document.createElement('h1')
+    h1.className = 'mainTitle'
+    h1.textContent = title
 
     const tagSection = document.createElement('aside')
     tagSection.id = `tag${id}`
     tagSection.className = 'tagSection'
 
-    tagsValue?.split(', ').forEach((tag) => {
+    tags?.split(', ').forEach((tag) => {
         const tagElement = document.createElement('p')
         tagElement.className = 'tags'
         tagElement.textContent = tag
@@ -126,7 +118,7 @@ const createPostElement = (postData) => {
     mainContent.appendChild(tagSection)
 
     // Append main content elements
-    mainContent.appendChild(title)
+    mainContent.appendChild(h1)
     mainContent.appendChild(tagSection)
 
     // Create the emoji section
@@ -207,7 +199,7 @@ export const addPostsToList = (postsData) => {
     const locationToInsertFirstPostImage =
         document.getElementById('firstPostImage')
     postsList.innerHTML = ''
-    const firstPostImage = postsData[0].imageValue
+    const firstPostImage = postsData[0].image
     locationToInsertFirstPostImage.src = firstPostImage
 
     postsData.forEach((post) => {

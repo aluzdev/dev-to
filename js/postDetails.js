@@ -18,26 +18,18 @@ const getPostById = async (postID) => {
             throw new Error('Invalid data format received from the API.')
         }
 
-        let {
-            authorValue,
-            avatar,
-            contentValue,
-            imageValue,
-            creationDate,
-            titleValue,
-            tagsValue,
-        } = data
+        let { author, avatar, content, image, creationDate, title, tags } = data
 
-        document.getElementById('author').innerText = authorValue
-        document.getElementById('cardAuthor').innerText = authorValue
-        document.getElementById('name').innerText = authorValue
-        document.getElementById('content').innerText = contentValue
-        document.getElementById('contentTitle').innerText = titleValue
-        document.getElementById('tags').innerText = tagsValue
+        document.getElementById('author').innerText = author
+        document.getElementById('cardAuthor').innerText = author
+        document.getElementById('name').innerText = author
+        document.getElementById('content').innerText = content
+        document.getElementById('contentTitle').innerText = title
+        document.getElementById('tags').innerText = tags
 
         document.getElementById('avatar').setAttribute('src', avatar)
         document.getElementById('imgCard').setAttribute('src', avatar)
-        document.getElementById('firstImage').setAttribute('src', imageValue)
+        document.getElementById('firstImage').setAttribute('src', image)
     } catch (error) {
         // Handle errors gracefully, e.g., log or show an error message to the user
         console.error('Error fetching or processing data:', error)
