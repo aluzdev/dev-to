@@ -8,7 +8,7 @@ const findPostsBytitle = async () => {
 
     // Filtra todos los posts que cumplen con el título
     const matchingPosts = posts.filter((post) =>
-        post.title.toLowerCase().includes(title)
+        post.title?.toLowerCase()?.includes(title)
     )
 
     if (matchingPosts.length > 0) {

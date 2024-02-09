@@ -9,7 +9,8 @@ export const getAllPosts = async () => {
         }
 
         const data = await response.json()
-        console.log({ data })
+        const posts = data
+        console.log({ posts })
 
         if (!data) {
             throw new Error('Invalid data format received from the API.')
@@ -63,7 +64,6 @@ const formatDateAndTimeAgo = (dateString) => {
 const createPostElement = (postData) => {
     const { author, avatar, content, creationDate, _id, image, tags, title } =
         postData
-    console.log({ _id })
 
     // Create the main post container
     const postContainer = document.createElement('div')
