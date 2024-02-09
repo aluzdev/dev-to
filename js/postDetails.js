@@ -4,15 +4,14 @@ const newPost = document.getElementById('postContainer')
 
 const getPostById = async (postID) => {
     try {
-        let response = await fetch(
-            `https://dev-to-fcbcc-default-rtdb.firebaseio.com/posts/${postID}/.json`
-        )
+        let response = await fetch(`http://localhost:1337/posts/${postID}`)
 
         if (!response.ok) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`)
         }
 
         let data = await response.json()
+        data = data.data
 
         if (!data) {
             throw new Error('Invalid data format received from the API.')

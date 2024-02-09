@@ -1,4 +1,4 @@
-import { getAllPosts } from './utils.js'
+import { getAllPosts, backend_url } from './utils.js'
 
 const newPostForm = document.getElementById('newPostForm')
 const authorInput = document.getElementById('author')
@@ -43,8 +43,9 @@ newPostForm.addEventListener('submit', async (e) => {
         postData,
     })
 
-    const response = await fetch(url, {
+    const response = await fetch(`${backend_url}/posts`, {
         method: 'post',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(postData),
     })
     const data = await response

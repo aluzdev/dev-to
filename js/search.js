@@ -2,12 +2,12 @@ import { getAllPosts, backend_url } from './utils.js'
 import { addPostsToList } from './utils.js'
 
 const findPostsBytitle = async () => {
-    let postsObject = await getAllPosts()
+    let posts = await getAllPosts()
     let searchInput = document.getElementById('search-input')
     let title = searchInput.value.toLowerCase()
 
     // Filtra todos los posts que cumplen con el título
-    const matchingPosts = Object.values(postsObject).filter((post) =>
+    const matchingPosts = posts.filter((post) =>
         post.title.toLowerCase().includes(title)
     )
 
@@ -48,14 +48,14 @@ const addFilteredPostsToSideBar = async (filter) => {
     sideCard.append(cardTitle)
 
     firstThreePosts.forEach((post) => {
-        const { id, title } = post
+        const { _id, title } = post
 
         // Create the first link and comment section
         const linkAndCommentSection1 = document.createElement('div')
         linkAndCommentSection1.classList.add('linkAndCommentSection')
 
         const link1 = document.createElement('a')
-        link1.href = `/views/post.html?.id=${id}`
+        link1.href = `/views/post.html?.id=${_id}`
         link1.classList.add('sideCardLink')
 
         const title1 = document.createElement('p')

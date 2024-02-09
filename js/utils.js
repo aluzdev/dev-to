@@ -61,12 +61,13 @@ const formatDateAndTimeAgo = (dateString) => {
 
 //helper function for addPostsToList
 const createPostElement = (postData) => {
-    const { author, avatar, content, creationDate, id, image, tags, title } =
+    const { author, avatar, content, creationDate, _id, image, tags, title } =
         postData
+    console.log({ _id })
 
     // Create the main post container
     const postContainer = document.createElement('div')
-    postContainer.id = id
+    postContainer.id = _id
     postContainer.className = 'postContainerPadding'
 
     // Create the profile info section
@@ -105,7 +106,7 @@ const createPostElement = (postData) => {
     h1.textContent = title
 
     const tagSection = document.createElement('aside')
-    tagSection.id = `tag${id}`
+    tagSection.id = `tag${_id}`
     tagSection.className = 'tagSection'
 
     tags?.split(', ').forEach((tag) => {
@@ -211,8 +212,9 @@ export const addPostsToList = (postsData) => {
 
     newPagePost.forEach((postContainer) => {
         postContainer.addEventListener('click', () => {
+            console.log({ postContainer })
             let id = postContainer.id
-            window.open(`views/post.html?.id=${id}`)
+            window.location.href = `views/post.html?.id=${id}`
         })
     })
 }

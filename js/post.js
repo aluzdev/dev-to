@@ -6,10 +6,10 @@ getAllPosts().then((posts) => {
     // Now add the event listener
     const newPagePost = document.querySelectorAll('.postContainerPadding')
 
-    newPagePost.forEach((div) => {
-        div.addEventListener('click', (event) => {
-            let id = div.id
-            window.open(`views/post.html?.id=${id}`)
+    newPagePost.forEach((postContainer) => {
+        postContainer.addEventListener('click', () => {
+            let id = postContainer.id
+            window.location.href = `views/post.html?.id=${id}`
         })
     })
 })
