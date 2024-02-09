@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:5002/posts'
+const baseURL = 'http://127.0.0.1:5002/posts'
 
 const getAllPosts = async () => {
     try {
