@@ -2,6 +2,8 @@ const loginHeader = document.getElementById('logInHeader')
 const createAccount = document.getElementById('createAccountHeader')
 const logoutContainer = document.getElementById('logOutButton')
 const asideDev = document.getElementById('devCommunity')
+const enterEmail = document.getElementById('email').value
+const enterPwd = document.getElementById('pwd').value
 
 const isAuthenticated = () => {
     const token = localStorage.getItem('userToken')
@@ -37,22 +39,20 @@ const addData = () => {
     const password = document.getElementById('pwd').value
 
     fetch('http://localhost:1337/users', {
-        method: "post",
+        method: 'post',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
         },
-      
+
         //make sure to serialize your JSON body
         body: JSON.stringify({
-          email: email,
-          password: password
-        })
-      })
-      .then( (response) => { 
-         //do something awesome that makes the world a better place
-      });
-
+            email: email,
+            password: password,
+        }),
+    }).then((response) => {
+        //do something awesome that makes the world a better place
+    })
 
     // const storedCredentials =
     //     JSON.parse(localStorage.getItem('userCredentials')) || []
@@ -69,21 +69,20 @@ const checkData = () => {
     const enterEmail = document.getElementById('email').value
     const enterPwd = document.getElementById('pwd').value
     fetch('http://localhost:1337/users/login', {
-        method: "post",
+        method: 'post',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
         },
-      
+
         //make sure to serialize your JSON body
         body: JSON.stringify({
-          email: enterEmail,
-          password: enterPwd
-        })
-      })
-      .then( (response) => { 
-         //do something awesome that makes the world a better place
-      });
+            email: enterEmail,
+            password: enterPwd,
+        }),
+    }).then((response) => {
+        //do something awesome that makes the world a better place
+    })
 
     // const storedCredentials =
     //     JSON.parse(localStorage.getItem('userCredentials')) || []
@@ -103,6 +102,36 @@ const checkData = () => {
     //     alert('Invalid data')
     // }
 }
+
+const getUser = async () => {
+    try {
+        const response = await fetch(`http://localhost:1337/users/login`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: enterEmail,
+                password: enterPwd,
+            }),
+        })
+
+        const data = await response.json()
+        const token = data.data
+        console.log({ token })
+        if (!data) {
+            throw new Error('Invalid data format received from the API.')
+        }
+        return data
+    } catch (error) {
+        // Handle errors gracefully, e.g., log or throw a custom error
+        console.error('Error fetching data:', error)
+        throw error
+    }
+}
+
+getUser()
 
 const createToken = () => {
     const token =
