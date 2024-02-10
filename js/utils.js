@@ -62,7 +62,7 @@ const formatDateAndTimeAgo = (dateString) => {
 
 //helper function for addPostsToList
 const createPostElement = (postData) => {
-    const { author, avatar, content, creationDate, _id, image, tags, title } =
+    const { author, avatar, content, createdAt, _id, image, tags, title } =
         postData
 
     // Create the main post container
@@ -88,7 +88,7 @@ const createPostElement = (postData) => {
 
     const creationDateElement = document.createElement('h4')
     creationDateElement.className = 'profile-subtitle'
-    creationDateElement.textContent = formatDateAndTimeAgo(creationDate)
+    creationDateElement.textContent = formatDateAndTimeAgo(createdAt)
 
     // Append profile elements
     profileColumn.appendChild(authorName)
