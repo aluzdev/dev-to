@@ -36,38 +36,72 @@ const addData = () => {
     const email = document.getElementById('email').value
     const password = document.getElementById('pwd').value
 
-    const storedCredentials =
-        JSON.parse(localStorage.getItem('userCredentials')) || []
+    fetch('http://localhost:1337/users', {
+        method: "post",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      
+        //make sure to serialize your JSON body
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      })
+      .then( (response) => { 
+         //do something awesome that makes the world a better place
+      });
 
-    storedCredentials.push({ email, password })
 
-    localStorage.setItem('userCredentials', JSON.stringify(storedCredentials))
+    // const storedCredentials =
+    //     JSON.parse(localStorage.getItem('userCredentials')) || []
 
-    updateHTMLAfterToken()
-    createToken()
+    // storedCredentials.push({ email, password })
+
+    // localStorage.setItem('userCredentials', JSON.stringify(storedCredentials))
+
+    // updateHTMLAfterToken()
+    // createToken()
 }
 
 const checkData = () => {
     const enterEmail = document.getElementById('email').value
     const enterPwd = document.getElementById('pwd').value
+    fetch('http://localhost:1337/users/login', {
+        method: "post",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      
+        //make sure to serialize your JSON body
+        body: JSON.stringify({
+          email: enterEmail,
+          password: enterPwd
+        })
+      })
+      .then( (response) => { 
+         //do something awesome that makes the world a better place
+      });
 
-    const storedCredentials =
-        JSON.parse(localStorage.getItem('userCredentials')) || []
+    // const storedCredentials =
+    //     JSON.parse(localStorage.getItem('userCredentials')) || []
 
-    const user = storedCredentials.find(
-        (credential) => credential.email === enterEmail
-    )
+    // const user = storedCredentials.find(
+    //     (credential) => credential.email === enterEmail
+    // )
 
-    if (user) {
-        if (enterPwd === user.password) {
-            alert('login Successful')
-            createToken()
-        } else {
-            alert('wrong password')
-        }
-    } else {
-        alert('Invalid data')
-    }
+    // if (user) {
+    //     if (enterPwd === user.password) {
+    //         alert('login Successful')
+    //         createToken()
+    //     } else {
+    //         alert('wrong password')
+    //     }
+    // } else {
+    //     alert('Invalid data')
+    // }
 }
 
 const createToken = () => {
